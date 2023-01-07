@@ -1,32 +1,53 @@
+using My.Mvc.Store.Data;
+using My.Mvc.Store.Domain.Entities;
+
 namespace My.Mvc.Store
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorPages();
+            _ = builder.Services.AddRazorPages();
+            _ = builder.Services.AddDbContext<ProductDbContext>();
 
-            var app = builder.Build();
+            WebApplication app = builder.Build();
+
+
+            using (IServiceScope scope = app.Services.CreateScope())
+            {
+                IServiceProvider provider = scope.ServiceProvider;
+                ProductDbContext context = provider.GetRequiredService<ProductDbContext>();
+                _ = context.Database.EnsureDeleted();
+                _ = context.Database.EnsureCreated();
+
+                context.Products.AddRange(
+                    new Product { Id = 1, Name = "Apple", Price = 1.5m, IsAvailable = true },
+                    new Product { Id = 2, Name = "Orange", Price = 2.5m, IsAvailable = true },
+                    new Product { Id = 3, Name = "Mango", Price = .5m, IsAvailable = true }
+                    );
+
+                _ = context.SaveChanges();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Error");
+                _ = app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                _ = app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            _ = app.UseHttpsRedirection();
+            _ = app.UseStaticFiles();
 
-            app.UseRouting();
+            _ = app.UseRouting();
 
-            app.UseAuthorization();
+            _ = app.UseAuthorization();
 
-            app.MapRazorPages();
+            _ = app.MapRazorPages();
 
             app.Run();
         }
