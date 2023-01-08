@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace My.Mvc.Store.Domain.Entities
+namespace My.Razor.Store.Domain.Entities
 {
     public abstract class EntityBase
     {

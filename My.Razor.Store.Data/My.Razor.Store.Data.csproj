@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\My.Mvc.Store.Domain\My.Mvc.Store.Domain.csproj" />
+		<ProjectReference Include="..\My.Razor.Store.Domain\My.Razor.Store.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

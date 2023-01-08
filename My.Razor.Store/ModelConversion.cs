@@ -1,7 +1,7 @@
-﻿using My.Mvc.Store.Domain.Entities;
-using My.Mvc.Store.Models;
+﻿using My.Razor.Store.Domain.Entities;
+using My.Razor.Store.Models;
 
-namespace My.Mvc.Store
+namespace My.Razor.Store
 {
     public static class ModelConversion
     {

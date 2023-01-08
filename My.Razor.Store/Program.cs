@@ -1,7 +1,7 @@
-using My.Mvc.Store.Data;
-using My.Mvc.Store.Domain.Entities;
+using My.Razor.Store.Data;
+using My.Razor.Store.Domain.Entities;
 
-namespace My.Mvc.Store
+namespace My.Razor.Store
 {
     public class Program
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using My.Mvc.Store.Domain.Entities;
+using My.Razor.Store.Domain.Entities;
 
-namespace My.Mvc.Store.Data
+namespace My.Razor.Store.Data
 {
     public class ProductDbContext : DbContext
     {

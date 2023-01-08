@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 
-namespace My.Mvc.Store.Pages
+namespace My.Razor.Store.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     [IgnoreAntiforgeryToken]
@@ -17,6 +17,7 @@ namespace My.Mvc.Store.Pages
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             _logger = logger;
+            _logger.LogInformation($"{nameof(ErrorModel)} has been instantiated");
         }
 
         public void OnGet()

@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace My.Mvc.Store.Models
+namespace My.Razor.Store.Domain.Entities
 {
-    public class ProductModel
+    public class Product : EntityBase
     {
-        public int Id { get; set; }
-
         [Required]
         [StringLength(25)]
         public string Name { get; set; } = string.Empty;

@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace My.Mvc.Store.Pages
+namespace My.Razor.Store.Pages
 {
     public class PrivacyModel : PageModel
     {
@@ -10,6 +9,7 @@ namespace My.Mvc.Store.Pages
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
+            _logger.LogInformation($"{nameof(PrivacyModel)} has been instantiated");
         }
 
         public void OnGet()
